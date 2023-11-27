@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- Connection settings -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/courses_dp</property>
+        <property name="hibernate.connection.username">dev_user</property>
+        <property name="hibernate.connection.password">123456</property>
+
+        <!-- SQL dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+        <!-- Print executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <property name="format_sql">true</property>
+
+
+
+        <!-- ddlauto her create ise çalıştırıldığında schema yeniden oluşturulur
+          update ise schema silinmez değişiklik var ise günceller
+          create-drop schemanızı uygulama çalıştırıldığında oluşuyor, sonlandığında schema siliniyor
+          validate schema yı validate yapıyor
+          none yukarıdakilerin hiç birisi yapmıyor
+          -->
+        <property name="hbm2ddl.auto">update</property>
+
+        <!-- addAnnotatedClass(Student05.class).addAnnotatedClass(Diary02.class); yerine
+         aşağıdaki config yapılabilir
+
+        <mapping class="hb05.manytoone.Student05"/>
+        <mapping class="hb05.manytoone.University"/>-->
+
+
+    </session-factory>
+</hibernate-configuration>
